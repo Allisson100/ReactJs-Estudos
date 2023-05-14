@@ -42,3 +42,6 @@ Falando um pouco sobre o comando npm install --save-dev <package>.
 
 A flag --save-dev indica que o pacote node é usado apenas em ambiente de desenvolvimento, ou seja, não será usado em produção quando você implantar a aplicação no servidor. Mas, que tipo de pacote se enquadraria nesse caso ?
 
+Imagine que você queira instalar um pacote para lhe ajudar a testar a aplicação. Você precisa intalá-lo via npm, mas deseja evitar que seja adicionado no seu ambiente de produção. Atividades de teste devem acontecer durante o processo de desenvolvimento, não quando a aplicação já foi disponibilizada para o usuário e já deveria ter sido testada e estar funcionando plenamente. Este é apenas um dos casos onde você desejaria utilizar a flag --save-dev.
+
+Vale ressaltar que muitas pessoas optam por utilizar outro gerenciador de dependências qu eé o Yarn. Yarn é um gerenciador que funciona de maneira muito similar com o npm. Ele tem sua própria lista de comandos para executar as mesmas tarefas que o npm, mas o Yarn nasceu para resolver alguns problemas que o npm não podia. Contudo, atualmente as duas ferramentas estão evoluindo realmente muito rápido e você pode escolher a que achar melhor.
