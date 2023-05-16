@@ -158,6 +158,12 @@ O atribute className faz referência ao class do HTML. Por razões técnicas, JS
 Tirei o App.js do strict mode, pois estava renderizando minha página duas vezes.
 
 
+# ES6 const e let
+
+No JavaScript ES6 temos a adição de const e let para serem utilizadas.
+
+Lembrando que se a const tiver um valor definido, esse valor não pode mais ser redefinido, mas caso a const tiver guardando um array, então o conteúdo dentro desse array pode ser modificado.
+
 
 
 
