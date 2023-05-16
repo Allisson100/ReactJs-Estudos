@@ -75,6 +75,36 @@ Mas, infelizmente, isso não é o bastante. Você teria que configurar também o
 Por esta razão, o Facebook introduziu create-react-app como solução para que não seja necessária fazer toda essa configuração. 
 
 
+# Setup sem nenhuma configuração 
+
+Vamos utilizar o create-react-app para montar a estrutura inicial da aplicação. Para isso vamos digitar:
+
+    npm install -g create-react-app 
+
+Para saber sua versão digitamos
+
+    create-react-app --version
+
+E vamos criar a aplicação que vai chamar hackernews com o comando
+
+    create-react-app hackernews
+
+Tentei executar esses comandos e não funcionou então utilizei os comando que aprendi na Alura:
+
+    npx create-react-app NOME_DA_PASTA --use-npm
+
+No nosso caso ficou:
+
+    npx create-react-app hackernews --use-npm
+
+Pelo o que eu pesquisei parece que o comando estava tentando instalar o react app com o yarn e não com o npm por isso utilizei o --use-npm.
+
+Mas agora deu certo.
+
+
+
+
+
 
 
 
