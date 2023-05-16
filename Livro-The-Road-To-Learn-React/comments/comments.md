@@ -101,6 +101,20 @@ Pelo o que eu pesquisei parece que o comando estava tentando instalar o react ap
 
 Mas agora deu certo.
 
+Temos alguns comandos padrões para utilizar:
+
+    // Roda a aplicação em http://localhost:3000
+    npm start
+
+    // Executa os testes
+    npm test
+
+    // Pepara a aplicação para produção
+    npm run build
+
+
+
+
 
 
 
