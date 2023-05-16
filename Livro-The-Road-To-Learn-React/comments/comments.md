@@ -165,6 +165,20 @@ No JavaScript ES6 temos a adição de const e let para serem utilizadas.
 Lembrando que se a const tiver um valor definido, esse valor não pode mais ser redefinido, mas caso a const tiver guardando um array, então o conteúdo dentro desse array pode ser modificado.
 
 
+# Hot Module Replacement
+
+Hot Module Replacement é algo como "recarregamento de módulos em tempo real" ou (HRM) é uma ferramenta que permite a atualização da aplicação em seu navegador, sem que este faça o recarregamento da página.
+
+O HRM nos traz muitas vantagens:
+
+- Imagine que você está duparando o código fazendo chamdas console.log(). Como o navegador não atualiza mais a página todas as vezes que você altera e salva o código, as chamadas anteriores irão permanecer no console até que você não queira mais. Isso pode ajudar bastante no processo de depuração.
+
+- Em uma aplicação que já está ficando grande, recarregamentos de página podem tirar sua produtividade. O tempo todo você tem que esperar que a página carregue novamente e isso pode demorar vários segundos em um app um pouco maior. HMR remove essa desvantagem.
+
+- Mas o maior benefício de usar HMR é o de que você consegue conservar o estado da aplicação por mais tempo. Imagine que você tenha uma caixa de diálogo com uma sequência de passos e você está no passo 3 (procedimento bastante conhecido como um wizard). Sem o HMR, ao realizar alterações no código-fonte, seu navegador automaticamente recarregará a página. Você terá que reiniciar o procedimento do passo 1 até passo 3 para ver a modificação. Com HMR, sua janela permanece ativa no passo 3, mantendo o estado da aplicação mesmo depois das mudanças de código fonte. A aplicação em si recarrega, mas a página não.
+
+
+
 
 
 
