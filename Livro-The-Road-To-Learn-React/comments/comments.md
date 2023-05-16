@@ -113,6 +113,49 @@ Temos alguns comandos padrões para utilizar:
     npm run build
 
 
+# Introdução à JSX
+
+JSX lhe permite misturar HTML com JavaScript.
+
+Dentro do arquivo App.js é onde podemos mudar nosso projeto e começar a desenvolver com React.
+
+    import './App.css';
+
+    function App() {
+    return (
+        <div className="App">
+        <h2>Welcome to the Road to Learn React</h2> 
+        </div>
+    );
+    }
+
+    export default App;
+
+Essa estrutura padrão vai nos retornar somente a frase Welcome to the Road to Learn React.
+
+Mas podemos adcionar variávei JavaScript também:
+
+    import './App.css';
+
+    function App() {
+
+        var helloWord = 'Welcome to the Road to Learn React';
+
+        return (
+        
+            <div className="App">
+            <h2>{helloWord}</h2> 
+            </div>
+        );
+    }
+
+    export default App;
+
+Os dois código vai nos retornar a frase Welcome to the Road to Learn React.
+
+O atribute className faz referência ao class do HTML. Por razões técnicas, JSX teve que substituir um punhado de atributos HTML. 
+
+Tirei o App.js do strict mode, pois estava renderizando minha página duas vezes.
 
 
 
