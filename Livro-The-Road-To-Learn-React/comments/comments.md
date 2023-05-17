@@ -178,7 +178,59 @@ O HRM nos traz muitas vantagens:
 - Mas o maior benefício de usar HMR é o de que você consegue conservar o estado da aplicação por mais tempo. Imagine que você tenha uma caixa de diálogo com uma sequência de passos e você está no passo 3 (procedimento bastante conhecido como um wizard). Sem o HMR, ao realizar alterações no código-fonte, seu navegador automaticamente recarregará a página. Você terá que reiniciar o procedimento do passo 1 até passo 3 para ver a modificação. Com HMR, sua janela permanece ativa no passo 3, mantendo o estado da aplicação mesmo depois das mudanças de código fonte. A aplicação em si recarrega, mas a página não.
 
 
+# JavaScript dentro do código JSX
 
+No arquivo App.js vamos definir uma lista de itens:
+
+    import './App.css';
+
+    function App() {
+
+    const list = [
+        {
+        title: 'React',
+        url: 'https://facebook.github.io/react/',
+        author: 'Jordan Walker',
+        num_comment: 3,
+        points: 4,
+        objectID: 0
+        },
+        {
+        title: 'Redux',
+        url: 'https://github.com/reactjs/redux',
+        author: 'Dan Abramov, Andrew Calrk',
+        num_comment: 2,
+        points: 5,
+        objectID: 1
+        }
+    ]
+
+    return (
+    
+        <div className="App">
+        {list.map((e) => {
+            return (
+            <div key={e.objectID}>
+                <span>
+                <a href={e.url}>{e.title}</a>
+                </span><br />
+
+                <span>{e.author}</span><br />
+                <span>{e.num_comment}</span><br />
+                <span>{e.points}</span><br />
+                
+            </div>
+            )
+        })}
+        </div>
+    );
+    }
+
+    export default App;
+
+Nesse caso criamos uma lista que nada mais é que um array de objetos.
+
+Utilizamos o map() para percorrer o array e transformar os itens que qeuremos em tags e conteúdos HTML, por ter ter essa lateração devemos utilizar o map(), pois com o forEach não irá funcionar, pois o forEach apenas percorre o array sem fazer qualquer alteração.
 
 
 
