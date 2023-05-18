@@ -259,6 +259,37 @@ Podemos usar por exemplo a função map sem o return ficando:
     </div>
 
 
+# Classes ES6
+
+JavaSCript ES6 introduziu classes, que são normalmentes utilizadas em lingaugens de programação orientadas a objetos. JavaScript sempre foi e ainda é muito flexível quanto ao seus paradigmas de programação. Você pode usar programação funcional e programação orientada a objeto lado a lado, quando mais apropriado for.
+
+Apesar do React adotar programação funcional, por exemplo com estruturas de dados imutáveis, classes sõa usadas para declarar componentes. Elas são chamdas de classes de ES6 (ES6 class components). React mistura as boas partes de ambos os paradigmas de programação.
+
+Consideramos a classe Developer a seguir, para que possamos examinar uma classe JavaScript ES6 sem ter que pensar sobre componentes. 
+
+    class Developer {
+        constructor(firstname, lastname) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+        }
+
+        getName() {
+            return this.firstname + ' ' + this.lastname; 
+        }
+    }
+
+Uma classe tem um construtor para torná-la instanciável e ele pode receber argumentos para atribuílos à instância da classe. Além disso, uma classe pode definir funções que, por estarem associadas, são chamadas de métodos. Geralmente, são chamados de métodos de classe.
+
+Developer é apenas a declaração da classe. Você pode criar múltiplas instâncias invocando-a. É o mesmo raciocínio ao componente de classe de ES6, que tem uma declaração, mas que você precisa usá-lo em algum outro lugar para instanciá-lo.
+
+Exemplo:
+
+    const robin = new Developer('Robin', 'Wieruch');
+    console.log(robin.getName())
+    //saída: Robin Wieruch
+
+
+
 
 
 
