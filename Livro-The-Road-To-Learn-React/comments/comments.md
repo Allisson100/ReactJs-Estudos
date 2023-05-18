@@ -289,6 +289,79 @@ Exemplo:
     //saída: Robin Wieruch
 
 
+# Elementos Interno do Componente
+
+O estado local, também chamado de estado interno do componente, lhe permite salvar, modificar e apagar propriedades que nele são armazenadas. Componentes de classe inicializam seu estado interno utilizando um construtor. Ele é chamado apenas uma vez (quando o componente é inicializado).
+
+    class App extends Component {
+    
+        constructor(props) {
+            super(props)
+
+            this.state = {
+            list: list,
+            }
+
+        }
+
+    ...
+
+    }
+
+Quando seu componente possui um construtor, torna-se obrigatório a chamada de super(). Porque o componente App é uma subclasse de Component (class App extends Component). Você também pode invocar supre(props) para definir this.props no contexto de seu construtor. Caso contrário, se tentar acessar this.props, receberá o valor undefined. 
+
+Por enquanto o estado inicial do componente é composto por apenas uma lista de itens:
+
+    const list = [
+        {
+            title: 'React',
+            url: 'https://facebook.github.io/react/',
+            author: 'Jordan Walker',
+            num_comment: 3,
+            points: 4,
+            objectID: 0
+        },
+        {
+            title: 'Redux',
+            url: 'https://github.com/reactjs/redux',
+            author: 'Dan Abramov, Andrew Calrk',
+            num_comment: 2,
+            points: 5,
+            objectID: 1
+        }
+    ]
+
+O estado inicial está amarrado à classe através do objeto this. Dessa forma, você pode acessá-lo em qualquer lugar do componente. Por exemplo, no método render(). Antes, usei o map como uma lista estática de itens (definida fora do componente). Agora, você irá usar a list obtida do seu estado local:
+
+    render() {
+        return (
+
+        <div className="App">
+            {this.state.list.map(e => 
+    
+                <div key={e.objectID}>
+                <span>
+                    <a href={e.url}>{e.title}</a>
+                </span><br/>
+    
+                <span>{e.author}</span><br/>
+                <span>{e.num_comment}</span><br/>
+                <span>{e.points}</span><br/>
+                </div>
+            )
+            }
+        </div>
+        
+        );
+    }
+
+A lista agora é parte do componente, residindo em seu estado interno. Você pode adicionar, alterar ou remover itens. Toda vez que o estado do componente mudar, o método render() será chamado novamente. Você simplesmente altera o estado interno, sabendo que o componente será de novo renderizado exibindo os dados corretos. 
+
+Mas temos que usar o método setState() para mudá-lo.
+
+
+
+
 
 
 
