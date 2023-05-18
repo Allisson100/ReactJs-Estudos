@@ -233,6 +233,31 @@ Nesse caso criamos uma lista que nada mais é que um array de objetos.
 Utilizamos o map() para percorrer o array e transformar os itens que qeuremos em tags e conteúdos HTML, por ter ter essa lateração devemos utilizar o map(), pois com o forEach não irá funcionar, pois o forEach apenas percorre o array sem fazer qualquer alteração.
 
 
+# ES6 Arrow Function
+
+JavaScript ES6 introduziu arrow function. Uma expressão com arrow function é mais curta do que uma expressão com uma função convecional (utilizando a palavra function).
+
+A arrow funciton tras um comportamente diferente com o objeto this. Uma função tradicional sempre define seu próprio objeto this. Arrow functions tem o obejto this do contexto que as contem. 
+
+Podemos usar por exemplo a função map sem o return ficando:
+
+    <div className="App">
+      {list.map(e => 
+        
+          <div key={e.objectID}>
+            <span>
+              <a href={e.url}>{e.title}</a>
+            </span><br />
+
+            <span>{e.author}</span><br />
+            <span>{e.num_comment}</span><br />
+            <span>{e.points}</span><br />
+            
+          </div>
+        )
+      }
+    </div>
+
 
 
 

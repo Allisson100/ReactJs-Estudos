@@ -24,8 +24,8 @@ function App() {
   return (
   
     <div className="App">
-      {list.map((e) => {
-        return (
+      {list.map(e => 
+        
           <div key={e.objectID}>
             <span>
               <a href={e.url}>{e.title}</a>
@@ -37,7 +37,7 @@ function App() {
             
           </div>
         )
-      })}
+      }
     </div>
   );
 }
