@@ -289,7 +289,7 @@ Exemplo:
     //saída: Robin Wieruch
 
 
-# Elementos Interno do Componente
+# Estado Interno do Componente
 
 O estado local, também chamado de estado interno do componente, lhe permite salvar, modificar e apagar propriedades que nele são armazenadas. Componentes de classe inicializam seu estado interno utilizando um construtor. Ele é chamado apenas uma vez (quando o componente é inicializado).
 
@@ -360,6 +360,7 @@ A lista agora é parte do componente, residindo em seu estado interno. Você pod
 Mas temos que usar o método setState() para mudá-lo.
 
 
+# Inicilizando Objetos em ES6
 
 
 
