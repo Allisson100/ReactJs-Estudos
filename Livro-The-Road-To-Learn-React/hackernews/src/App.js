@@ -31,6 +31,13 @@ class App extends Component {
       list,
     }
 
+    this.onDimiss = this.onDimiss.bind(this)
+  }
+
+  onDimiss(id) {
+    const isNotId = e => e.objectID !== id
+    const updatedList = this.state.list.filter(isNotId)
+    this.setState({list : updatedList})
   }
 
   render() {
@@ -47,6 +54,13 @@ class App extends Component {
               <span>{e.author}</span><br/>
               <span>{e.num_comment}</span><br/>
               <span>{e.points}</span><br/>
+
+              <span>
+                <button type='button' onClick={() => this.onDimiss(e.objectID)}>
+                  Dimiss
+                </button>
+              </span>
+
             </div>
           )
         }

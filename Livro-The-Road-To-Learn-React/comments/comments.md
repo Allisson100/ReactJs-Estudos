@@ -429,6 +429,77 @@ Por último, o uso de nomes computados de propriedades é permitido em JavaScrip
         [key]: 'Robin',
     }
 
+Talvez ainda esteja um pouco confuso, mas no decorrer do livro vamos nos deparar com a situação em que poderemos utilizá-los para alocar valores por chave, de uma forma dinâmica em um objeto. É uma forma elegante em JavaScript de gerar lookup tables (um tipo de estrutura de dados).
+
+
+# Fluxo Unidirecional de Dados
+
+Você tem agora em mãos um componente App com estado interno, que ainda não foi mexido. O estado é estático e, consequentemente, o seu componente também. Uma boa maneira de experimentar manipular o estado é criando algum interação entre componentes.
+
+Vamos adicionar um botão para cada item da lista que é exibida. O botão tem o rótulo "Dimiss" (dispensar) e irá remover o item, send útil quando você quer masnter uma lista constando apenas itens ainda não lidos e dispensar os que não tem interese, por exemplo.
+
+    render() {
+        return (
+
+        <div className="App">
+            {this.state.list.map(e => 
+    
+                <div key={e.objectID}>
+                <span>
+                    <a href={e.url}>{e.title}</a>
+                </span><br/>
+    
+                <span>{e.author}</span><br/>
+                <span>{e.num_comment}</span><br/>
+                <span>{e.points}</span><br/>
+
+                <span>
+                    <button type='button' onClick={() => this.onDimiss(e.objectID)}>
+                    Dimiss
+                    </button>
+                </span>
+
+                </div>
+            )
+            }
+        </div>
+        
+        );
+    }
+
+Como você pode ver, o método onDimiss() no onClick está encapsulado por uma arrow function. Nela, você tem acesso à propriedade objectId do objeto e, que identifica qual item será removiudo. Uma alternativa à isso seria definir a função fora e apenas passá-la para o onClick.
+
+Vamos implementar o comportamento do onDimiss(). A função recebe um id, para identificar qual item será removido e, por ser amarrada à classe, é um método de classe. Sendo assim, deve ser acessada com this.onDimiss() e não apenas com onDimiss(). O objeto this é a instância da sua classe.
+
+Para definir o onDimiss() como um método de classe, você precisa usar bind no construtor. Binding serão explicados mais adiante no livro.
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+        list,
+        }
+
+        this.onDimiss = this.onDimiss.bind(this)
+    }
+
+O próximo passo é definir a funcionalidade em si, ou a lógica de negócio do método em su classe, da seguinte maneira:
+
+    onDimiss(id) {
+        const isNotId = e => e.objectID !== id
+        const updatedList = this.state.list.filter(isNotId)
+        this.setState({list : updatedList})
+    }
+
+Para exemplificar melhor esse código, o método filter utiliza a sintaxe .filter(e => condição) e vai nos retornar onde os elementos do array que deram true na condição.
+
+Desse modo flamos que a const inNotId será a condição do filter que é: par cada elemento, se esse elemento apresentar um objectID !== do id que passamos como parâmetro então coloque nesse nvo array chamado upadtedList.
+
+E a parte this.setState({list: upadatedList}) apenas troca o conteúdo do array por outro.
+
+Isso nada mais é que o fluxo unidirecional de dados em React. Você dispara um ação em sua view com onClick(), uma função ou método de classe que muda o estado interno do componente e render() é de novo executado para atulizar a view.
+
+
 
 
 
