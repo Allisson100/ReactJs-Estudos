@@ -362,6 +362,72 @@ Mas temos que usar o método setState() para mudá-lo.
 
 # Inicilizando Objetos em ES6
 
+Em JavaScript ES6, você pode usar uma sintaxe abreviada para inicializar seus objetos de forma mais concisa. Exemplo:
+
+    const name = 'Robin'
+
+    const user = {
+        name: name,
+    }
+
+Nesse caso, em que a propriedade do objeto e a variável são igualmente chamadas de name, você poderia fazer desta forma:
+
+    const name = 'Robin'
+
+    const user = {
+        name,
+    }
+
+Podemos usar esse conceito em nosso código ficando:
+
+    class App extends Component {
+    
+        constructor(props) {
+            super(props)
+
+            this.state = {
+            list,
+            }
+
+        }
+
+    ...
+
+    }
+
+Um outro atalho elegante é a declaração concisa de métodos em JavaScript ES6.
+
+    // ES5
+
+    var userService = {
+        getUserName: function (user) {
+            return user.firstname + ' ' + user.lastname 
+        }
+    }
+
+
+    // ES6
+
+    var userService = {
+        getUserName(user) {
+            return user.firstname + ' ' + user.lastname 
+        }
+    }
+
+Por último, o uso de nomes computados de propriedades é permitido em JavaScript ES6.
+
+    // ES5
+
+    var user = {
+        name: 'Robin',
+    }
+
+    //ES6
+
+    const key = 'name'
+    const user = {
+        [key]: 'Robin',
+    }
 
 
 
