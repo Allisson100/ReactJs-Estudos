@@ -61,7 +61,10 @@ class App extends Component {
               <span>{e.points}</span><br/>
 
               <span>
-                <button type='button' onClick={() => this.onDimiss(e.objectID)}>
+                <button 
+                  type='button' 
+                  onClick={() => this.onDimiss(e.objectID)}
+                >
                   Dimiss
                 </button>
               </span>

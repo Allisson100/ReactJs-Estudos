@@ -587,6 +587,107 @@ Por fim, os métodos de classe podem ser automaticamente vinculados sem fazê-lo
         console.log(this);
     }
 
+# Tratamento de Eventos
+
+Por enquanto em nossa aplicação utilizamos o elemento button para remover um item da lista:
+
+    <button 
+        type='button' 
+        onClick={() => this.onDimiss(e.objectID)}
+    >
+        Dimiss
+    </button>
+
+Este exemplo é um tant quanto complexo. você tem que passar um valor para o método de classe e, pra tal, precisa encapsulá-lo em outra função (uma arrow function). Basicament, o que precisa ser passado como argumento para o event handler (tratador de eventos) é uma função, não sua chamada. O código a seguir não funcionaria, porque o método de classe seria imediatamente executado quando você abrisse sua aplicação no navegador:
+
+    <button
+        onClick={this.onDismiss(item.objectID)}
+        type="button"
+    >
+        Dismiss
+    </button>
+
+Quando usamos onClick={executarAlgo()}, a função executarAlgo() seria excutada emediatamente após a aplicação abrir no browser. A expreessão passada para o handler é avaliada e, como o valor não é uma função, nada irá acontecer quando você clicar no botão. Mas, quando fazemos onClick={executarAlgo}, onde excutarAlgo é o nome da função, essa só será executada quando o botão for clicado. A mesma regra se aplica para o método onDimiss usado em nossa aplicação.
+
+Entretanto, não é suficiente declarar onClick = {this.onDimiss}, porque precisamos passar a propriedade item.objectID para o método, para identificar qual item será removido. Por esse motivo, usamos uma arrow function como wrapper, utilizando o conceito conhecido em JavaScript como high-order function.
+
+    <button
+        onClick={() => this.onDismiss(item.objectID)}
+        type="button"
+    >
+        Dismiss
+    </button>
+
+Uma outra alternativa seria definir um wrapper em algum outro lugar e passá-la como argumento para o tratamento do evento. Uma vez que precisa ter acesso ao item, ela deve residir dentro do bloco da função map:
+
+class App extends Component {
+
+...
+
+    render() {
+        return (
+            <div className="App">
+                {this.state.list.map(item => {
+                    const onHandleDismiss = () => this.onDismiss(item.objectID); //Exemplo
+
+                    return (
+                        <div key={item.objectID}>
+                            <span>
+                            <a href={item.url}>{item.title}</a>
+                            </span>
+                            <span>{item.author}</span>
+                            <span>{item.num_comments}</span>
+                            <span>{item.points}</span>
+                            <span>
+
+                                <button
+                                    onClick={onHandleDismiss} //Exemplo
+                                    type="button"
+                                >
+                                    Dismiss
+                                </button>
+                            </span>
+                        </div>
+                    );
+                }
+                )}
+            </div>
+        );
+    }
+}
+
+No fim das contas, o event handler do elemento precisa receber uma função. Como exemplo, o código a seguir faz ao contrário:
+
+    <button
+        onClick={console.log(item.objectID)}
+        type="button"
+    >
+        Dismiss
+    </button>
+
+A função é executada assim que abre a aplicação no navegador, mas quando você clica no botão nada acontece. Enquanto o código a seguir só roda quando clicarmos no botão. É uma função que é executada quando você dispara o evento:
+
+    <button
+        onClick={function () {
+            console.log(item.objectID)
+        }}
+        type="button"
+    >
+        Dismiss
+    </button>
+
+Visando manter o código conciso, você pode trasnformá-la de volta em uma arrow function, fazendo o mesmo que fizemos com o método de classe onDimiss():
+
+    <button
+        onClick={() => console.log(item.objectID)}
+        type="button"
+    >
+        Dismiss
+    </button>
+
+Outro tópico relevante que sempre é mencionado, com relação à preformance, é o das implicações do uso de arrow functions em event handlers. Por exemplo, tomemos o caso do onClick com uma arrow function envolvendo o onDimiss. Toda as vezes que o método render() for executado, o event handler irá instanciar a função. Isso pode ter um certo impacto na performance da sua aplicação. Na maioria dos casos, porém, você não irá notar diferença.
+
+Imagine que vocÊ tenha uma enorme tabela de dados com 1000 itens e cada linha ou coluna tem uma arrow function sendo definida no event handler. Nesse caso, sim, é válida a preucupação a respeito da performance e você poderia implementar um componente dedicado Button com biding ocorrendo no construtor.
 
 
 
