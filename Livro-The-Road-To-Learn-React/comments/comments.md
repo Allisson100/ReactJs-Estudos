@@ -868,12 +868,35 @@ Talvez você tenha notado que o objeto do estado local do componente App pode se
 
 Mostrando o jeito Es5 e ES6:
 
-//ES5
-var searchTerm = this.state.searchTerm
-var list = this.state.list
+    //ES5
+    var searchTerm = this.state.searchTerm
+    var list = this.state.list
 
-//ES6
-const { searchTerm, list } = this.state
+    //ES6
+    const { searchTerm, list } = this.state
+
+
+# Componentes Controlados
+
+Você já tomou conhecimento do fluxo uniderecional de dados em React. A mesma lógica se aplica para o campo de input, que atualiza o estado local com o searchTerm para filtrar a lista. Quando o estado é alterado, o método render() é executado novamente e utiliza o searchTerm mais recente do estada local para aplicar a condição de filtragem.
+
+Mas, não teríamos esquecido de alguma coisa no elemento input? A tag HTML input possui um atributo value. Este, por sua vez, geralmente contém o valor que é mostrado no campo. Neste caso, a propriedade searchTerm. Acho que ficou a impressão de que não precisamos disso em React.
+
+Errado. Eleemntos de forms como <input>, <textarea> e <select> possuem seu próprio estado em HTML puro. Eles modificam o valor internamente quando alguém de fora do componente muda. Em React, isso é chamado de um componente não controlado, porque ele gerencia seu próprio estado. Você deve garantir-se de que os transformou em componentes controlados.
+
+Mas, como fazê-lo? Você só precisa definir o atributo "value" de um campo de input. Que no nosso caso será o searchTerm:
+
+    <form>
+        <input 
+        type="text" 
+        value={searchTerm}
+        onChange={this.onSearchChange}
+        />
+    </form>
+
+É só isso. O loop do fluxo de dados unidirecional do campo input torna-se auto-contido. O estado interno do componente é a única fonte confiável de dados (single source of truth) para o input.
+
+
 
 
 
