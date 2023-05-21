@@ -897,6 +897,96 @@ Mas, como fazê-lo? Você só precisa definir o atributo "value" de um campo de 
 É só isso. O loop do fluxo de dados unidirecional do campo input torna-se auto-contido. O estado interno do componente é a única fonte confiável de dados (single source of truth) para o input.
 
 
+# Dividindo Componentes
+
+Nós temos um componente App de tamanho considerável. Ele continua crescendo e, eventualmente, pode tornar-se confuso. É possível dividi-lo em partes, ou seja, componentes menores.
+
+Então vamos digitar:
+
+    class App extends Component {
+
+        ...
+
+        return (
+
+        <div className="App">
+            <Search 
+            value={searchTerm}
+            onChange={this.onSearchChange}
+            />
+            <Table 
+            list={list}
+            pattern={searchTerm}
+            onDimiss={this.onDimiss}
+            />
+        </div>
+        
+        );
+    }
+
+E vamos criar novas classes que faz referencia ao Search e ao Table:
+
+    class Search extends Component {
+        render() {
+
+            const { value, onChange } = this.props
+
+            return (
+            <form>
+                <input 
+                type="text" 
+                value={value}
+                onChange={onChange}
+                />
+            </form>
+            )
+        }
+    }
+
+    class Table extends Component {
+        render() {
+
+            const { list, pattern, onDimiss } = this.props
+
+            return (
+            <div>
+                {list.filter(isSearched(pattern)).map(e => 
+                
+                <div key={e.objectID}>
+                    <span>
+                    <a href={e.url}>{e.title}</a>
+                    </span><br/>
+
+                    <span>{e.author}</span><br/>
+                    <span>{e.num_comment}</span><br/>
+                    <span>{e.points}</span><br/>
+
+                    <span>
+                    <button 
+                        type='button' 
+                        onClick={() => onDimiss(e.objectID)}
+                    >
+                        Dimiss
+                    </button>
+                    </span>
+
+                </div>
+                )
+                }
+            </div>
+            )
+        }
+    }
+
+
+Você pode passar, para esses componentes, propriedades que eles podem usar. No caso, o componente App precisa passar as propriedades gerenciadas no seu estado local e os seus métodos de classe.
+
+Agora que você tem esses três componentes, talvez tenha notado o objeto props, que é acessível na instância de classe com o uso de this. As props (diminutivo de propriedades) tem todos os valores que você passou para os componentes quando os utilizou dentro de App. Desta forma, componentes podem passar propriedades para os níveis abaixo, na árvore de componentes.
+
+Tendo extraído esses componentes do App, você estaria apto a reutilizá-los em qualquer outro lugar. Uma vez que componentes recebem valores atrvés do objeto props, você pode passar valores diferentes para seu componente a cada vez que utilizá-lo.
+
+
+
 
 
 

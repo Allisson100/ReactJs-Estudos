@@ -67,39 +67,70 @@ class App extends Component {
     return (
 
       <div className="App">
-        <form>
-          <input 
-            type="text" 
-            value={searchTerm}
-            onChange={this.onSearchChange}
-          />
-        </form>
-        {list.filter(isSearched(searchTerm)).map(e => 
-  
-            <div key={e.objectID}>
-              <span>
-                <a href={e.url}>{e.title}</a>
-              </span><br/>
-  
-              <span>{e.author}</span><br/>
-              <span>{e.num_comment}</span><br/>
-              <span>{e.points}</span><br/>
-
-              <span>
-                <button 
-                  type='button' 
-                  onClick={() => this.onDimiss(e.objectID)}
-                >
-                  Dimiss
-                </button>
-              </span>
-
-            </div>
-          )
-        }
+        <Search 
+          value={searchTerm}
+          onChange={this.onSearchChange}
+        />
+        <Table 
+          list={list}
+          pattern={searchTerm}
+          onDimiss={this.onDimiss}
+        />
       </div>
       
     );
+  }
+}
+
+class Search extends Component {
+  render() {
+
+    const { value, onChange } = this.props
+
+    return (
+      <form>
+        <input 
+          type="text" 
+          value={value}
+          onChange={onChange}
+        />
+      </form>
+    )
+  }
+}
+
+class Table extends Component {
+  render() {
+
+    const { list, pattern, onDimiss } = this.props
+
+    return (
+      <div>
+        {list.filter(isSearched(pattern)).map(e => 
+          
+          <div key={e.objectID}>
+            <span>
+              <a href={e.url}>{e.title}</a>
+            </span><br/>
+
+            <span>{e.author}</span><br/>
+            <span>{e.num_comment}</span><br/>
+            <span>{e.points}</span><br/>
+
+            <span>
+              <button 
+                type='button' 
+                onClick={() => onDimiss(e.objectID)}
+              >
+                Dimiss
+              </button>
+            </span>
+
+          </div>
+        )
+        }
+      </div>
+    )
   }
 }
 
