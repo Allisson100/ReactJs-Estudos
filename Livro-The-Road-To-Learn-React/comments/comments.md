@@ -500,6 +500,100 @@ E a parte this.setState({list: upadatedList}) apenas troca o conteúdo do array 
 Isso nada mais é que o fluxo unidirecional de dados em React. Você dispara um ação em sua view com onClick(), uma função ou método de classe que muda o estado interno do componente e render() é de novo executado para atulizar a view.
 
 
+# Bindings
+
+É importante aprender sobre bindings em classes JavaScript quando se vai trabalhar como componentes de classe em React.
+
+Utilizamos esse recurso para ligar o método onDimiss à classe no construtor:
+
+    this.onDimiss = this.onDimiss.bind(this)
+
+Em primeiro lugar: Por que você teve que fazer isso? Esse passo é necessário porque a amarração do this com a instância de classe não é feita automaticamente pelos métodos. Exemplo:
+
+    <button
+        type='button'
+        onClick={this.onClickMe}
+    >
+        Click me
+    </button>
+
+    onClickMe() {
+        console.log(this)
+    }
+
+O componente renderiza normalmente, mas quando você clica no botão, obtém undefined no console. Essa é uma das maiores fontes de bugs quando se usa React. Você deseja usar o this.state em um método de classe e ele não está acessível, porque this é undefinded. Para corrigir isso, você precisa criar o binding entre o método e this .
+
+Exemplo:
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+        list,
+        }
+
+        this.onDimiss = this.onDimiss.bind(this)
+        this.onClickMe = this.onClickMe.bind(this)
+    }
+
+No construtor a gente fez o bind do this com o método onClickMe e agora ele reconhece o this.
+
+Executando novamente, o bjeto this (ou, sendo mais específico, a instância da classe) está definido nesse contexto e você tem acesso a this.state, oou this.props.
+
+O binding de métodos também poderia ser feito em outros lugares, como no render():
+
+    render() {
+        return (
+            <button
+                onClick={this.onClickMe.bind(this)}
+                type="button"
+            >
+                Click Me
+            </button>
+        );
+    }
+
+Apesar de possível, esta prática deve ser evitada, porque a vinculação do método seria feita todas as vezes que render() for chamado. Como basicamente ele roda todas as vezes que seu componente é atualizado, isso poderia trazer implicações de performance. Quando binding ocorre no construtor, o processo só ocorre uma vez: quando o componente é instanciado. Essa é a melhor abordagem a ser escolhida.
+
+Outra que não é vista como uma boa prática é definir a lógica dentro do construtor:
+
+    constructor() {
+        super();
+
+        this.onClickMe = () => {
+            console.log(this);
+        }
+    }
+
+Isso deve ser evitado, pois isso irá transformar seu construtor em uma bagunça ao longo do tempo. A finalidade d construtor é instanciar sua classe com todas as propriedades. E fazer a lógica fora dele:
+
+    constructor() {
+        super();
+            this.doSomething = this.doSomething.bind(this);
+            this.doSomethingElse = this.doSomethingElse.bind(this);
+    }
+
+    doSomething() {
+        // do something
+    }
+
+    doSomethingElse() {
+        // do something else
+    }
+
+Por fim, os métodos de classe podem ser automaticamente vinculados sem fazê-lo explicitamente, com o uso de arrow functions:
+
+    onClickMe = () => {
+        console.log(this);
+    }
+
+
+
+
+
+
+
+
 
 
 

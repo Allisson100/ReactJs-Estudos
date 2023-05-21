@@ -32,12 +32,17 @@ class App extends Component {
     }
 
     this.onDimiss = this.onDimiss.bind(this)
+    this.onClickMe = this.onClickMe.bind(this)
   }
 
   onDimiss(id) {
     const isNotId = e => e.objectID !== id
     const updatedList = this.state.list.filter(isNotId)
     this.setState({list : updatedList})
+  }
+
+  onClickMe() {
+    console.log(this)
   }
 
   render() {
@@ -64,6 +69,12 @@ class App extends Component {
             </div>
           )
         }
+        <button
+          type='button'
+          onClick={this.onClickMe}
+        >
+          Click me
+        </button>
       </div>
       
     );
