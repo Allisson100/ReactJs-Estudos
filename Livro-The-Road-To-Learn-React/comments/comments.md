@@ -986,6 +986,58 @@ Agora que você tem esses três componentes, talvez tenha notado o objeto props,
 Tendo extraído esses componentes do App, você estaria apto a reutilizá-los em qualquer outro lugar. Uma vez que componentes recebem valores atrvés do objeto props, você pode passar valores diferentes para seu componente a cada vez que utilizá-lo.
 
 
+# Componentes Integráveis 
+
+Existe ainda uma pequena propriedade que pode ser acessada no objeto de props: a props children.
+
+Você pode usá-la para passar elementos dos componentes acima na hierarquia para os que estão abaixo, tornando possível integrar componentes com outros. Exemplo:
+
+No App digitamos:
+
+    return (
+
+        <div className="App">
+            <Search 
+                value={searchTerm}
+                onChange={this.onSearchChange}
+            >
+                Search
+            </Search>
+            <Table 
+                list={list}
+                pattern={searchTerm}
+                onDimiss={this.onDimiss}
+            />
+        </div>
+        
+    );
+
+Colocamos a palavra Search solta, mas só fazendo isso ela não aparecerá na página. Para isso no nosso componete Search vamos utilizar o children:
+
+    class Search extends Component {
+        render() {
+
+            const { value, onChange, children } = this.props
+
+            return (
+            <form>
+                {children} <input 
+                type="text" 
+                value={value}
+                onChange={onChange}
+                />
+            </form>
+            )
+        }
+    }
+
+Nós desestruturamos a propriedade props com value, onChange, children e esse children remete a palavra que queremos colocar no arquivo que no nosso caso é a palavra Seach.
+
+O texto "Search" deve estar visível próximo do campo input agora. Quando você utilizar o componente Search em algum outro lugar, você poderá escolher um texto diferente, se assim quiser.
+
+No fim das contas, não é só o texto que pode ser passado assim. Você pod enviar um elemento (e árvores de elementos, encapsuldas por outros componentes) como children. Esta propriedade permite entrelaçar componentes.
+
+
 
 
 
