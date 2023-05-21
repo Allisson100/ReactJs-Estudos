@@ -22,6 +22,20 @@ const list = [
   }
 ]
 
+// ES5
+// function isSearched(searchTerm) {
+//   return function(item) {
+
+//     return item.title.toLoweCase().includes(searchTerm.toLowerCase())
+
+//     // some condition which returns treu or false
+//   }
+// }
+
+//ES6
+
+const isSearched = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase())
+
 class App extends Component {
   
   constructor(props) {
@@ -29,10 +43,11 @@ class App extends Component {
 
     this.state = {
       list,
+      searchTerm: '',
     }
 
     this.onDimiss = this.onDimiss.bind(this)
-    this.onClickMe = this.onClickMe.bind(this)
+    this.onSearchChange = this.onSearchChange.bind(this)
   }
 
   onDimiss(id) {
@@ -41,15 +56,21 @@ class App extends Component {
     this.setState({list : updatedList})
   }
 
-  onClickMe() {
-    console.log(this)
+  onSearchChange(event) {
+    this.setState({ searchTerm: event.target.value })
   }
 
   render() {
     return (
 
       <div className="App">
-        {this.state.list.map(e => 
+        <form>
+          <input 
+            type="text" 
+            onChange={this.onSearchChange}
+          />
+        </form>
+        {this.state.list.filter(isSearched(this.state.searchTerm)).map(e => 
   
             <div key={e.objectID}>
               <span>
@@ -72,12 +93,6 @@ class App extends Component {
             </div>
           )
         }
-        <button
-          type='button'
-          onClick={this.onClickMe}
-        >
-          Click me
-        </button>
       </div>
       
     );

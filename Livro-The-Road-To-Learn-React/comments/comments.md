@@ -690,13 +690,127 @@ Outro tópico relevante que sempre é mencionado, com relação à preformance, 
 Imagine que vocÊ tenha uma enorme tabela de dados com 1000 itens e cada linha ou coluna tem uma arrow function sendo definida no event handler. Nesse caso, sim, é válida a preucupação a respeito da performance e você poderia implementar um componente dedicado Button com biding ocorrendo no construtor.
 
 
+# Interações com Forms e Eventos
 
+Adicionamos outra interação com à aplicação, tendo uma experiência com forms e eventos em React. A interação em questão é a funcioalidade de busca. O valor de entrada no campo de busca será usado para filtrar temporariamente sua list, baseado na propriedade title de cada item.
 
+Vamos adicionar o form com um input dentro:
 
+    <form>
+        <input 
+            type="text" 
+        />
+    </form>
 
+Você irá digitar no input e filtrar a lista por esse termo de busca. Para tanto, você precisa armazenar o valor digitado em seu estado local. Mas, como acessar o valor? É possível utilizar synthetic events em React para acessar os detalhes do evento.
 
+Vamos definir um event handler onChange para o campo input:
 
+    <form>
+        <input 
+            type="text" 
+            onChange={this.onSearchChange}
+        />
+    </form>
 
+A função está vinculada ao componente e, portanto, novamente temos um método de clase. Você ainda precisa do binding e definir o método em si:
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            list,
+        }
+
+        this.onDimiss = this.onDimiss.bind(this)
+        this.onSearchChange = this.onSearchChange.bind(this)
+    }
+
+    onSearchChange() {
+        ...
+    }
+
+Utilizando o event handler em seu elemento, você ganha acesso ao synthetic event de React na assisnatura da função que utilizou como callback:
+
+    onSearchChange(event) {
+        ...
+    }
+
+O evento tem o value do campo input no seu objeto target. Consequentemente, você consegue atualizar o estado local com o termo de busca utilizando this.setState() novamente:
+
+    onSearchChange(event) {
+        this.setState({ searchTerm: event.target.value })
+    }
+
+Ademais, você não deve esquecer de definir o estado inicial para a propriedade searchTerm em seu construtor. O campo input estará vazio de início e, portanto, o valor deverá ser uma string vazia:
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            list,
+            searchTerm: '',
+        }
+
+        this.onDimiss = this.onDimiss.bind(this)
+        this.onSearchChange = this.onSearchChange.bind(this)
+    }
+
+Agora, toda as vezes que o campo de input muda, você está armazenando o valor digitado no estado interno do seu componente.
+
+Um breve comentário sobre a atualização do estado local em um componente React: Seria normal se achássemos que, quando atualizamos searchTerm com this.setState, também deveriamos informar o valor de list. Mas não é o caso. O método this.setState() de React faz o que chamamos de shallow merge. Ele preserva o valor das outras propriedades do objeto de estado, quando apenas uma delas é atualizada. O estado da lista permanecerá o mesmo, inclusive sem o item que você removeu, quando apenas a propriedade searchTerm for alterada.
+
+Voltando à aplicação. A lista não é temporariamente filtrada com base no valor do campo input que está armazenado no seu estado local, mas você tem em mãos tudo o que precisa para fazê-lo. Como? No seu método render(), antes de iterar sobre sobre a lista usando map, você pode aplicar um filtro à ela, que apenas avaliaria se searchTerm coincide com o da propriedade title do item. Vamos usar a funcionalidade filter, nativa do JavaScript. Como o filter retorna um novo array, você pode convenientemente chamá-la antes de map:
+
+    {this.state.list.filter(...).map(e => ... )}
+
+Desta vez, iremos adotar uma abordagem diferente sobre a função filter. Queremos definir o seu argumento (outra função) fora do componente. Lá, não temos acesso ao estado do componente e, por consequência, à propriedade searchTerm para avaliar a condição de filtragem. Teremos que passar o searchTerm como argumento e retornar uma nova função, que avalia a condição. Esse tipo de função retornada por outra função é chamada de high-order function.
+
+Normalmente eu não mencionaria higher-order functions, mas faz todo o sentido em um livro sobre React. Faz sentido porque React trabalha com um conceito chamado de high-order components. Mais tarde, você aprenderá mais sobre isso. Vamos focar agora na funcionalidade filter.
+
+Primeiro, você terá que definir a high-order function fora do componente App:
+
+    // ES5
+    function isSearched(searchTerm) {
+        return function(item) {
+            // some condition which returns treu or false
+        }
+    }
+
+A função recebe o searchTerm e retorna outra função, porque é o que filter espera como entrada. A função retornada terá acesso ao objeto item, pois será argumento da função filter. A filtragem será feita baseada na condição definida nela, que é o que faremos agora:
+
+    // ES5
+    function isSearched(searchTerm) {
+        return function(item) {
+
+            return item.title.toLoweCase().includes(searchTerm.toLowerCase())
+
+            // some condition which returns treu or false
+        }
+    }
+
+A condição diz que devemos comparar o padrão recebido em searchTerm com a propriedade title do item da lista. Você pode fazê-lo utilizando includes, funcionalidade nativa de JavaScript. Quando o padrão coincide, você retorna true e o item permanece na lista. Senão, o item é removido. Mas, tenha cuidado com comparações de padrões: Você não pode esquecer de formatar ambas as strings, transformando seus caracteres em minúsculas. Caso contrário, o título “Redux” e o termo de busca “redux” serão considerados diferentes. Uma vez que estamos trabalhando com listas imutáveis e uma nova lista é retornada pela função filter, a lista original permanecerá sem ser modificada.
+
+Uma última coisa a mencionar: “Apelamos” um pouco, utilizando o recurso includes já de ES6. Como faríamos o mesmo, em JavaScript ES5? Você usaria a função inderOf() para pegar o índice do item na list.
+
+Outra refatoração elegante pode ser feita utilizando-se novamente uma arrow function, tornando a função mais concisa:
+
+    ES5
+    function isSearched(searchTerm) {
+        return function(item) {
+
+            return item.title.toLoweCase().includes(searchTerm.toLowerCase())
+
+            // some condition which returns treu or false
+        }
+    }
+
+    //ES6
+    const isSearched = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase())
+
+Por fim, você tem que usar a função definida isSearched() para filtrar sua lista. Você passa a propriedade searchTerm do seu estado local para a função, ela retorna outra função como input de filter e filtra sua lista baseada na condição descrita. Depois disso tudo, iteramos sobre a lista filtrada usando map para exibir um elemento para cada item da lista:
+
+    {this.state.list.filter(isSearched(this.state.searchTerm)).map(e => ...)}
 
 
 
