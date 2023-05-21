@@ -813,6 +813,70 @@ Por fim, você tem que usar a função definida isSearched() para filtrar sua li
     {this.state.list.filter(isSearched(this.state.searchTerm)).map(e => ...)}
 
 
+# ES6 Destructuring
+
+Existe um jeito, em JavaScript ES6, de acessar propriedades de objetos mais facilmente. É chamado de destructing. Exemplo com JavaScript ES5 e ES6:
+
+    const user = {
+        firstame: 'Robin',
+        lastname: 'Wieruch',
+    }
+
+    //ES5
+    var firstname = user.fisrtname
+    var lastname = user.lastname
+
+    console.log(fistname + ' ' + lastname)
+    // output: Robin Wieruch
+
+
+    //ES6
+    const { firstname, lastname } = user
+
+    console.log(firstname + ' ' + lastname)
+    // output: Robin Wieruch
+
+Enquanto que, em JavaScript ES5, você precisa de uma instrução de código a mais toda vez que quer acessar uma propriedade de um objeto, em ES6 você pode fazê-lo de uma só vez, em uma única linha.
+
+Uma boa prática, visando legibilidade, é fazer destructing de múltiplas propriedades quebrando-o em várias linhas:
+
+    const {
+        firstname,
+        lastname
+
+    } = user
+
+O mesmo vale para arrays, que também podem sofrer destructing:
+
+    const users = ['Robin', 'Andrew', 'Dan']
+
+    const [
+        userOne,
+        userTwo,
+        userThree    
+
+    ] = users
+
+    console.log(userOne, UserTwo, userThree)
+    //output: Robin Andrew Dan
+
+Talvez você tenha notado que o objeto do estado local do componente App pode ser "desestruturado" da mesma forma e com isso a linha do filter e map vai ficar menor:
+
+    const { searchTerm, list } = this.state
+
+    {list.filter(isSearched(searchTerm)).map(item => ... )}
+
+Mostrando o jeito Es5 e ES6:
+
+//ES5
+var searchTerm = this.state.searchTerm
+var list = this.state.list
+
+//ES6
+const { searchTerm, list } = this.state
+
+
+
 
 
 
