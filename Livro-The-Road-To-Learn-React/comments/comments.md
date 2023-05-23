@@ -1213,6 +1213,13 @@ E agora o componente Button:
 Deixei o Button como função, pois eu defini a className como string vazia.
 
 
+# Estilizando Componentes
+
+Nesse capítulo apenas utilizamos algumas estlizações em CSS que o livro mesmo nos disponibilizou, mas de certa forma no ensinou como colocar alguns estilos CSS, tanto em um arquiv separado como estilos inline.
+
+Utilizamos os arquivos padrões mesmo que já vem qaundo criams um app react que são o App.css e o Index.css, mas poderiamos criar novos arquivos para melhor organização e depois era só importá-los.
+
+
 
 
 
