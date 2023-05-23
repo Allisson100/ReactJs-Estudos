@@ -1,4 +1,4 @@
-import { Children, Component } from 'react';
+import { Component } from 'react';
 import './App.css';
 
 
@@ -108,30 +108,47 @@ class Table extends Component {
 
     return (
       <div>
-        {list.filter(isSearched(pattern)).map(e => 
+        {list.filter(isSearched(pattern)).map(item => 
           
-          <div key={e.objectID}>
+          <div key={item.objectID}>
             <span>
-              <a href={e.url}>{e.title}</a>
+              <a href={item.url}>{item.title}</a>
             </span><br/>
 
-            <span>{e.author}</span><br/>
-            <span>{e.num_comment}</span><br/>
-            <span>{e.points}</span><br/>
+            <span>{item.author}</span><br/>
+            <span>{item.num_comment}</span><br/>
+            <span>{item.points}</span><br/>
 
             <span>
-              <button 
-                type='button' 
-                onClick={() => onDimiss(e.objectID)}
-              >
+              <Button onClick={() => onDimiss(item.objectID)}>
                 Dimiss
-              </button>
+              </Button>
             </span>
 
           </div>
         )
         }
       </div>
+    )
+  }
+}
+
+class Button extends Component {
+  render() {
+    const {
+      onClick,
+      className = '',
+      children,
+    } = this.props
+
+    return (
+      <button
+        onClick={onClick}
+        className={className}
+        type='button'
+      >
+        {children}
+      </button>
     )
   }
 }

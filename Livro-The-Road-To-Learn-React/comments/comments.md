@@ -1038,6 +1038,57 @@ O texto "Search" deve estar visível próximo do campo input agora. Quando você
 No fim das contas, não é só o texto que pode ser passado assim. Você pod enviar um elemento (e árvores de elementos, encapsuldas por outros componentes) como children. Esta propriedade permite entrelaçar componentes.
 
 
+# Componentes Reutilizáveis
+
+Ter componentes reutilizáveis e combináveis lhe dá o poder de porduzir hierarquias de componentes com competência. Eles são a base da camada de visão do React. Já temos alguns componentes reutilizáveis como o Table e Search.
+
+Agora vamos criar o componente Button:
+
+    class Button extends Component {
+        render() {
+            const {
+            onClick,
+            className,
+            children,
+            } = this.props
+
+            return (
+            <button
+                onClick={onClick}
+                className={className}
+                type='button'
+            >
+                {children}
+            </button>
+            )
+        }
+    }
+
+Pode parecer redundante declarar um componente como este. Você irá utilizar um componente Button ao invés do elemento button, poupando apenas o type="button". Exceto por esse atributo de tipo, quando você decide usar o componente Button, você precisará definir todo o resto. Mas, você tem que pensar em termos de um investimento a longo prazo. Imagine que possui vários botões em sua aplicação e quer mudar um atributo, estilo ou comportamento do botão. Imagine que possui vários botões em sua aplicação e quer mudar um atributo, estilo ou comportamento do botão. Sem o componente recém criado, você teria que manualmente refatorar cada botão. O componente Button garante que existirá uma referência única, um Button para refatorar todos os botões de uma só vez. "One Button to rule them all".
+
+Uma vez que você já tenha um elemento de botão, substitua-o pelo componente Button. Note que ele omite o atributo type, já específicado dentro do componente:
+
+    class Table extends Component {
+        <span>
+            <Button onClick={() => onDimiss(item.objectID)}>
+                Dimiss
+            </Button>
+        </span>
+    }
+
+O componente espera recebr uma propriedade classname via props. O atributo classname é mais uma especificidade React, derivando do atributo HTML class. Mas, nós não passamos esse atributo quando utilizamos Button e, sendo assim, deveria ser mais explícito no código do componente que className é opcional.
+
+Portando, você deveria definir um valor padrão para o parâmetro (mais uma finalidade do JavaScript ES6).
+
+    render() {
+        const {
+        onClick,
+        className = '',
+        children,
+        } = this.props
+
+        ...
+    }
 
 
 
