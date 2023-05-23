@@ -1091,6 +1091,108 @@ Portando, você deveria definir um valor padrão para o parâmetro (mais uma fin
     }
 
 
+# Declarações de Componentes
+
+No momento, você tem quatros componentes implementados com classes ES6. É possível melhorar ainda mais esse cenário. Deixe-me introduzir para você os componentes funcionais sem estado (stateless funcional componentes), como uma alternativa a componentes de classe. Vamos apresentar os diferentes tipos de componentes React, antes de partir a refatoração.
+
+- Functional Stateless Components: Esses componentes são funções que recebem uma entrada e retornam uma saída. As props do componente são a entrada. A saída é uma instância de componente (ou seja, puro e simples JSX). Em termos, é bem semelhante a componentes de classe. Contudo, eles são funções (functional) e não possuem estado local (stateless). Você não consegue acessar ou atualizar o estado com this.state ou this.setState(), porque não existe o objeto this aqui. Além disso, eles não possuem métodos de ciclo de vida (lifecycle methods). Apesar de não ter explicitamente aprendido a respeito ainda, você já utilizou dois: constructor() e render(). Ao passo que o construtor roda apenas uma vez durante todo o tempo de vida de um componente, o método render() é executado uma vez no início e também toda vez que o componente é atualizado. Tenha em mente este detalhe dos stateless functional components (ausência de métodos de ciclo de vida), para quando chegarmos a este assusnto posteriormente.
+
+- Componentes de Classe ES6: Você já utilizou esse tipo de declaração de componente nos quatro que construiu até aqui, extendendo o componente React. O extends atrela ao componente todos os métodos de ciclo de vida, disponíveis na API de componentes React. Assim, você pode utilizar o método render(). Além disso, é possível armazenar e manipular o estado através de this.state e this.setState().
+
+- React.createClass: Esta forma era utilizada nas versões mais antigas de React e ainda é, em aplicações    React que utilizam JavaScript ES5. Mas, o Facebook a declarou como deprecated. 
+
+Quando desenvolvemos um projeto normalmente começamos implementando os componentes com functional stateless components e depois se necessário refatoramos para um componente de classe ES6.
+
+Então vamos refatorar o código Search:
+
+    function Search(props) {
+        const { value, onChange, children } = props;
+        
+        return (
+            <form>
+                {children} <input
+                    type="text"
+                    value={value}
+                    onChange={onChange}
+            />
+            </form>
+        );
+    }
+
+Basicamente, é isso: as props estão acessíveis na assinatura da função e o seu retorno é código JSX. Mas, você pode melhorar ainda mais o código. Da mesma forma que usamos destructuring antes, podemos fazer de novo com os parâmetros props:
+
+    function Search({ value, onChange, children }) {
+        return (
+            <form>
+                {children} <input
+                    type="text"
+                    value={value}
+                    onChange={onChange}
+                />
+            </form>
+        );
+    }
+
+Podemos melhorar ainda mais usando arrow functions. Uma vez que seu stateless é uma função, você pode escrevê-lo da forma concisa também:
+
+    const Search = ({ value, onChange, children }) => 
+
+    <form>
+        {children} <input 
+        type="text" 
+        value={value}
+        onChange={onChange}
+        />
+    </form>
+
+Este útimo passo foi útil: ele forçou  que a função tenha apenas props como entrada e JSX como saída. Contudo, se você realmente precisar fazer alguma coisa, sempre é possível devolver as declarações de bloco de corpo e o retorno da função:
+
+    const Search = ({ value, onChange, children }) => {
+
+        // do something
+
+        return (
+            <form>
+                {children} <input
+                    type="text"
+                    value={value}
+                    onChange={onChange}
+                />
+            </form>
+        );
+    }
+
+Agora vamos refatorar o componente Table:
+
+    const Table = ({ list, pattern, onDimiss }) => 
+
+    <div>
+    {list.filter(isSearched(pattern)).map(item => 
+        
+        <div key={item.objectID}>
+        <span>
+            <a href={item.url}>{item.title}</a>
+        </span><br/>
+
+        <span>{item.author}</span><br/>
+        <span>{item.num_comment}</span><br/>
+        <span>{item.points}</span><br/>
+
+        <span>
+            <Button onClick={() => onDimiss(item.objectID)}>
+            Dimiss
+            </Button>
+        </span>
+
+        </div>
+    )
+    }
+    </div>
+
+E agora o componente Button:
+
+
+
 
 
 

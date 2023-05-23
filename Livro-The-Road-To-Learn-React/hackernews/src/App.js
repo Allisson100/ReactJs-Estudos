@@ -84,64 +84,53 @@ class App extends Component {
   }
 }
 
-class Search extends Component {
-  render() {
+const Search = ({ value, onChange, children }) => 
 
-    const { value, onChange, children } = this.props
+<form>
+  {children} <input 
+    type="text" 
+    value={value}
+    onChange={onChange}
+  />
+</form>
 
-    return (
-      <form>
-        {children} <input 
-          type="text" 
-          value={value}
-          onChange={onChange}
-        />
-      </form>
-    )
+
+
+const Table = ({ list, pattern, onDimiss }) => 
+
+<div>
+  {list.filter(isSearched(pattern)).map(item => 
+    
+    <div key={item.objectID}>
+      <span>
+        <a href={item.url}>{item.title}</a>
+      </span><br/>
+
+      <span>{item.author}</span><br/>
+      <span>{item.num_comment}</span><br/>
+      <span>{item.points}</span><br/>
+
+      <span>
+        <Button onClick={() => onDimiss(item.objectID)}>
+          Dimiss
+        </Button>
+      </span>
+
+    </div>
+  )
   }
-}
+</div>
 
-class Table extends Component {
-  render() {
 
-    const { list, pattern, onDimiss } = this.props
+function Button (props) {
 
-    return (
-      <div>
-        {list.filter(isSearched(pattern)).map(item => 
-          
-          <div key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span><br/>
-
-            <span>{item.author}</span><br/>
-            <span>{item.num_comment}</span><br/>
-            <span>{item.points}</span><br/>
-
-            <span>
-              <Button onClick={() => onDimiss(item.objectID)}>
-                Dimiss
-              </Button>
-            </span>
-
-          </div>
-        )
-        }
-      </div>
-    )
-  }
-}
-
-class Button extends Component {
-  render() {
     const {
       onClick,
       className = '',
       children,
-    } = this.props
+    } = props
 
-    return (
+    return (  
       <button
         onClick={onClick}
         className={className}
@@ -150,7 +139,6 @@ class Button extends Component {
         {children}
       </button>
     )
-  }
 }
 
 export default App;
