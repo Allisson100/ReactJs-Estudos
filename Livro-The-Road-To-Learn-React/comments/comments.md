@@ -1191,6 +1191,27 @@ Agora vamos refatorar o componente Table:
 
 E agora o componente Button:
 
+    function Button (props) {
+
+        const {
+        onClick,
+        className = '',
+        children,
+        } = props
+
+        return (  
+        <button
+            onClick={onClick}
+            className={className}
+            type='button'
+        >
+            {children}
+        </button>
+        )
+    }
+
+Deixei o Button como função, pois eu defini a className como string vazia.
+
 
 
 
