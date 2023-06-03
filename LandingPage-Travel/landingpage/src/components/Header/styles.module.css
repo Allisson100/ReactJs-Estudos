@@ -1,0 +1,80 @@
+.navContainer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    color: #EE1C45;
+    font-family: var(--mainFont);
+    font-size: 2.188rem;
+    font-weight: 400;
+    line-height: 2.889rem;
+}
+
+.ulHeader {
+    column-gap: 3.125rem;
+    display: flex;
+}
+
+.ulHeader li {
+    color: white;
+    cursor: pointer;
+    font-family: var(--secundaryFont);
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.026rem;
+    transition: .05s;
+}
+
+.ulHeader li:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.ulHeader li:active {
+    transform: scale(0.95);
+}
+
+
+
+.signContainer {
+    align-items: center;
+    column-gap: 2.063rem;
+    display: flex;
+}
+
+.signContainer span {
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--secundaryFont);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.026rem;
+    text-decoration: underline;
+    transition: .05s;
+}
+
+.signContainer button {
+    background-image: linear-gradient(to right, #CD1A40, #FF803C);
+    border: none;
+    border-radius: 1.125rem;
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--secundaryFont);
+    font-weight: 700;
+    height: 3rem;
+    padding: 1rem 1.625rem;
+    width: 6.25rem;
+}
+
+.signContainer span:hover,
+.signContainer button:hover {
+    transform: scale(1.05);
+}
+
+.signContainer span:active,
+.signContainer button:active {
+    transform: scale(0.95);
+}
