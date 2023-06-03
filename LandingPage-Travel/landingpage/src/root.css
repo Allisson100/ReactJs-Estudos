@@ -1,0 +1,10 @@
+:root {
+    --mainFont: 'Clicker Script', cursive;
+    --secundaryFont: 'Work Sans', sans-serif;
+    --thirdFont: 'Water Brush', cursive;
+}
+
+.App {
+    text-align: center;
+}
+  
