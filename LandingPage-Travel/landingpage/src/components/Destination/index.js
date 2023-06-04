@@ -1,3 +1,4 @@
+import Button from '../Button'
 import styles from './styles.module.css'
 
 function Destination () {
@@ -9,32 +10,33 @@ function Destination () {
                 <div className={styles.imageOne}>
                     <div className={styles.imageOpacity}>
                         <h4>Malaysia</h4>
-                        <span>16 Tours</span>
+                        <Button>16 Tours</Button>
                     </div>
                 </div>
                 
                 <div className={styles.imageTwo}>
                     <div className={styles.imageOpacity}>
                         <h4>Dubai</h4>
-                        <span>16 Tours</span>
+                        <Button>16 Tours</Button>
                     </div>
                 </div>
 
                 <div className={styles.imageThree}>
                     <div className={styles.imageOpacity}>
                         <h4>Greece</h4>
-                        <span>16 Tours</span>
+                        <Button>16 Tours</Button>
                     </div>
                 </div>
 
                 <div className={styles.imageFour}>
                     <div className={styles.imageOpacity}>
                         <h4>Singapore</h4>
-                        <span>16 Tours</span>
+                        <Button>16 Tours</Button>
                     </div>
                 </div>
             </div>
-            <button className={styles.viewMoreButton}>View More</button>
+            
+            <Button>View More</Button>
         </section>
        
     )

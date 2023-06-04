@@ -29,17 +29,8 @@
     line-height: 4.169rem;
 }
 
-.destinationContainer span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.destinationContainer Button {
     font-weight: 500;
-    font-family: var(--secundaryFont);
-    font-size: 0.875rem;
-    line-height: 1.026rem;
-    padding: 1rem;
-    border-radius: 1.125rem;
-    background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);
 }
 
 .imageContainer {
@@ -55,6 +46,7 @@
     column-gap: 1.25rem;
     row-gap: 0.875rem;
     color: #fff;
+    margin-bottom: 3.438rem;
 }
 
 .imageOpacity {    
@@ -100,27 +92,4 @@
     background-image: url(../../assets/img/singapore.png);
     width: 100%;
     height: 100%;
-}
-
-.viewMoreButton {
-    border: none;
-    margin-top: 2.25rem;
-    padding: 1.25rem;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.026rem;
-    font-family: var(--secundaryFont);
-    border-radius: 1.125rem;
-    background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);
-    color: #fff;
-    cursor: pointer;
-    transition: .05s;
-}
-
-.viewMoreButton:hover {
-    transform: scale(1.05);
-}
-
-.viewMoreButton:active {
-    transform: scale(0.95);
 }

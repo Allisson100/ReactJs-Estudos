@@ -1,0 +1,21 @@
+.button {
+    border: none;
+    padding: 1.25rem;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.026rem;
+    font-family: var(--secundaryFont);
+    border-radius: 1.125rem;
+    background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);
+    color: #fff;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
