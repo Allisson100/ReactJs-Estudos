@@ -2,6 +2,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -16,6 +17,7 @@
 .ulHeader {
     column-gap: 3.125rem;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .ulHeader li {
