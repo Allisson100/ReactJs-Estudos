@@ -1,3 +1,4 @@
+import ExploreAndTravel from '../ExplorerAndTravel'
 import Header from '../Header'
 import styles from './styles.module.css'
 
@@ -6,6 +7,7 @@ function Banner () {
         <div className={styles.bannerContainer}>
             <div className={styles.shadowImage}>
                 <Header/>
+                <ExploreAndTravel/>
             </div>
         </div>
     )
