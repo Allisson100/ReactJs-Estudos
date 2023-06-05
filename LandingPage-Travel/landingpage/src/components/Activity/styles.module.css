@@ -1,0 +1,51 @@
+.activityContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.75rem;
+    padding: 0 6.8%;
+    width: 100%;
+}
+
+.activityTitle {
+    color: #CD1A40;
+    font-family: var(--thirdFont);
+    font-size: 2.875rem;
+    font-weight: 400;
+    line-height: 4.188rem;
+    margin-bottom: 1.125rem;
+}
+
+.activitySubtitle {
+    color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 4.688rem;
+    margin-bottom: 1.125rem;
+    text-transform: uppercase;
+}
+
+.activityP {
+    color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    margin: 0 auto;
+    width: 48.75rem;
+}
+
+.cardContainer {
+    column-gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2.25rem;
+    row-gap: 2.25rem;
+}
+
+.cardContainer:first-child {
+    background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);
+    color: #ffffff;
+}
