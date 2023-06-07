@@ -1,0 +1,57 @@
+.tourCard {
+    background-color: #FFF9F0;
+    border-radius: 0.375rem;
+    height: 25.75rem;
+    width: 23.625rem;
+}
+
+.tourCard img {
+    border-radius: 0.375rem;
+    height: 20.125rem;
+    width: 23.625rem;
+}
+
+.tourCardDetails {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.375rem;
+}
+
+.placeAndDaysContainer {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 3.188rem;
+    justify-content: center;
+    row-gap: 0.25rem;
+    width: auto;
+}
+
+.placeName {
+    color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.759rem;
+    text-transform: uppercase;
+}
+
+.tourDays {
+    color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.173rem;
+}
+
+.tourPrice {
+    align-items: center;
+    color: #1E1E1E;
+    display: flex;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.173rem;
+}
+

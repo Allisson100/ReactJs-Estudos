@@ -1,0 +1,38 @@
+.tourPackages {
+    padding: 0 5.813rem;
+}
+
+.tourPackages h2 {
+    color: #CD1A40;
+    font-family: var(--thirdFont);
+    font-size: 2.875rem;
+    font-weight: 400;
+    line-height: 4.169rem;
+    margin-bottom: 1.125rem;
+    margin-top: 4.75rem;
+}
+
+.tourPackages h3 {
+    color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 4.692rem;
+    margin-bottom: 1.125rem;
+    text-transform: uppercase;
+}
+
+.tourPackages p {
+    color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    margin: 0 auto 2.25rem auto;
+    width: 48.75rem;
+}
+
+.tourCardContainer {
+    display: flex;
+    justify-content: space-between;
+}

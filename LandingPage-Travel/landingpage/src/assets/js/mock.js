@@ -37,4 +37,29 @@ const activities = [
     }
 ]
 
-export {activities}
+const tour = [
+    {
+        id: "1",
+        place: "rome, italy",
+        days: "10 days trip",
+        price: "$5.24K",
+        imageUrl: require('../img/rome.png')
+    },
+    {
+        id: "2",
+        place: "Lahore, pakistan",
+        days: "6 days trip",
+        price: "$3.25K",
+        imageUrl: require('../img/pakistan.png')
+    },
+    {
+        id: "3",
+        place: "singapore",
+        days: "6 days trip",
+        price: "$7.00K",
+        imageUrl: require('../img/singaporeTwo.png')
+    }
+
+]
+
+export { activities, tour }
