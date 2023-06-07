@@ -8,6 +8,7 @@ import TourPackages from './components/TourPackages';
 
 import { tour } from './assets/js/mock'
 import SharedPhotos from './components/SharedPhotos';
+import ReviewEtour from './components/ReviewEtour';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         tours={tour}
       />
       <SharedPhotos />
+      <ReviewEtour />
     </div>
   );
 }
