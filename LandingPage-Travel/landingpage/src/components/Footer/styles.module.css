@@ -1,0 +1,110 @@
+.footerContainer {
+    background-image: url('../../assets/img/footerBg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.footerOpacity {
+    background: rgba(30, 30, 30, 0.8);
+    color: #ffffff;
+    display: flex;  
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: space-between;
+    padding: 4.375rem 6.8%;
+    width: 100%;
+}
+
+.footerListeeTravel {
+    display: flex;
+    flex-direction: column;
+    height: 16.188rem;
+    width: 23.75rem;
+}
+
+.footerListeeTravel h1 {
+    font-family: var(--mainFont);
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 5.118rem;
+    text-align: left;
+    margin-bottom: .5rem;
+}
+
+.footerListeeTravel p {
+    font-family: var(--secundaryFont);
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.375rem;
+    text-align: justify;
+    margin-bottom: 1.375rem;
+}
+
+.footerIconsContainer {
+    align-items: center;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footerIcon {
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.footerNav {
+    text-align: left;
+    width: 8.625rem;
+}
+
+.footerNav h4 {
+    font-family: var(--secundaryFont);
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.906rem;
+    margin-bottom: 1.75rem;
+}
+
+.footerNav li {
+    display: block;
+    font-family: var(--secundaryFont);
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 2.75rem;
+}
+
+.footerContact {
+    text-align: left;
+    width: 20.75rem;
+}
+
+.footerContact h4 {
+    font-family: var(--secundaryFont);
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.906rem;
+    margin-bottom: 1.75rem;
+}
+
+.contactContent {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 1.25rem;
+}
+
+.footerContact span {
+    font-family: var(--secundaryFont);
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.906rem;
+}
+
+
+
+
+
+
+
+

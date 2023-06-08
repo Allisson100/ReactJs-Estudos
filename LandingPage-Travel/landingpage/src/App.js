@@ -10,6 +10,7 @@ import { tour } from './assets/js/mock'
 import SharedPhotos from './components/SharedPhotos';
 import ReviewEtour from './components/ReviewEtour';
 import Newsletter from './components/Newsletter';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <SharedPhotos />
       <ReviewEtour />
       <Newsletter />
+      <Footer />
     </div>
   );
 }
