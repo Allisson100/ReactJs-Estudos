@@ -9,6 +9,7 @@ import TourPackages from './components/TourPackages';
 import { tour } from './assets/js/mock'
 import SharedPhotos from './components/SharedPhotos';
 import ReviewEtour from './components/ReviewEtour';
+import Newsletter from './components/Newsletter';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       />
       <SharedPhotos />
       <ReviewEtour />
+      <Newsletter />
     </div>
   );
 }

@@ -1,0 +1,95 @@
+.newsletterContainer {
+    background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15.5rem;
+    padding: 5.813rem;
+    position: relative;
+    width: 100%;
+}
+
+.newsletterContent {
+    height: auto;
+    text-align: left;
+    width: 42.5%;
+}
+
+.newsletterContent h2 {
+    color: #ffffff;
+    font-family: var(--secundaryFont);
+    font-size: 2.875rem;
+    font-weight: 700;
+    line-height: 3.375rem;
+    margin-bottom: 1.625rem;
+}
+
+.newsletterContent p {
+    color: #ffffff;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    margin-bottom: 1.625rem;
+}
+
+.newsletterInputAndIcon {
+    display: flex;
+    width: 100%;
+}
+
+.newsletterInput {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    border: none;
+    color: #ffffff;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.625rem;
+    padding-top: 1.5rem;
+    width: 100%;
+}
+
+.newsletterInput::placeholder {
+    color: #ffffff;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+}
+
+.newsletterButton {
+    align-items: center;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    line-height: 0;
+    padding: 1.563rem 1.75rem;
+    transition: .05s;
+}
+
+.newsletterButton:active {
+    transform: scale(0.95);
+}
+
+.newsletterButton:hover {
+    outline: 2px solid black;
+}
+
+.arrowIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.newsletterBuilding {
+    bottom: 0;
+    height: 43.25rem;
+    left: 0;
+    position: absolute;
+    width: 35.313rem;
+}
