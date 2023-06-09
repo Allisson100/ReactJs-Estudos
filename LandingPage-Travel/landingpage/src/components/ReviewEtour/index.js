@@ -12,19 +12,19 @@ function ReviewEtour () {
                 </p>
             </div>
             <div className={styles.picturesContainer}>
-                    <img src={require('../../assets/img/pic1.png')} alt="pic1" />
-                    <img src={require('../../assets/img/pic2.png')} alt="pic2" />
-                    <img src={require('../../assets/img/pic3.png')} alt="pic3" />
-                    <div className={styles.pictureFourContainer}>
-                        <img src={require('../../assets/img/pic4.png')} alt="pic4" />
-                        <div className={styles.picFourDetails}>
-                            <span className={styles.picFourDetailsName}>Scarlett Thomas</span>
-                            <span className={styles.picFourDetailsPlace}>Singapore</span>
-                        </div>
+                <img src={require('../../assets/img/pic1.png')} alt="pic1" />
+                <img src={require('../../assets/img/pic2.png')} alt="pic2" />
+                <img src={require('../../assets/img/pic3.png')} alt="pic3" />
+                <div className={styles.pictureFourContainer}>
+                    <img src={require('../../assets/img/pic4.png')} alt="pic4" />
+                    <div className={styles.picFourDetails}>
+                        <span className={styles.picFourDetailsName}>Scarlett Thomas</span>
+                        <span className={styles.picFourDetailsPlace}>Singapore</span>
                     </div>
-                    <img src={require('../../assets/img/pic5.png')} alt="pic5" />
-                    <img src={require('../../assets/img/pic6.png')} alt="pic6" />
                 </div>
+                <img src={require('../../assets/img/pic5.png')} alt="pic5" />
+                <img src={require('../../assets/img/pic6.png')} alt="pic6" />
+            </div>
         </section>
     )
 }

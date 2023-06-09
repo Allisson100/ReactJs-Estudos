@@ -35,32 +35,10 @@
 
 .commentContainer {
     background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);;
-    padding: 2.375rem;
-    position: relative;
+    clip-path: polygon(0% 0%, 0% 90%, 56% 90%, 56% 100%, 58% 90%, 100% 90%, 100% 0%);
+    padding: 2.375rem 2.375rem 2.938rem 2.375rem;
     margin: 0 auto;
     width: 61.25rem;
-}
-
-.commentContainer::before {
-    content: '"';
-    font-family: 'Rampart One', cursive;
-    font-size: 12.5rem;
-    font-weight: bold;
-    left: 2rem;
-    position: absolute;
-    top: -4.4rem;
-}
-
-.commentContainer::after {
-    background: inherit;
-    clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
-    content: '';
-    height: 2rem;
-    left: 56%;
-    position: absolute;
-    top: 98%;
-    width: 2rem;
-    z-index: -1;
 }
 
 .commentContainerP{
@@ -76,7 +54,18 @@
     flex-wrap: wrap;
     gap: 2.25rem;
     justify-content: center;
-    margin: 2.25rem 0 2.25rem 0;
+    margin: 1.125rem 0 0 0;
+    position: relative;
+}
+
+.picturesContainer::before {
+    content: '"';
+    font-family: 'Rampart One', cursive;
+    font-size: 12.5rem;
+    font-weight: bold;
+    left: 7.875rem;
+    position: absolute;
+    top: -18rem;
 }
 
 .picturesContainer img {
