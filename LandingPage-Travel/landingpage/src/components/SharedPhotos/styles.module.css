@@ -5,8 +5,8 @@
 .photosContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1.25rem;
+    justify-content: center;
     margin: 2.25rem 0 4.75rem 0;
 }
 

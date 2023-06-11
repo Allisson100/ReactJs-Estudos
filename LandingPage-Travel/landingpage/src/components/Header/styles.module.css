@@ -78,3 +78,14 @@
 .signContainer button:active {
     transform: scale(0.95);
 }
+
+@media screen and (max-width: 1050px) {
+
+    .ulHeader {
+        display: none;
+    }
+
+    .signContainer {
+        display: none;
+    }    
+}

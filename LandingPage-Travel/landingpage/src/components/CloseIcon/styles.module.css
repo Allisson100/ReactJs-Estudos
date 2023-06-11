@@ -1,0 +1,36 @@
+.closeIconContainer {
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 50px;
+    justify-content: center;
+    position: absolute;
+    right: 67px;
+    top: 20px;
+    transition: .1s;
+    width: 50px;
+}
+
+.closeIconContainer:hover {
+    transform: scale(1.05);
+}
+
+.closeIconSpan{
+    background-color: #ffffff;
+    border-radius: 2px;
+    height: 6px;
+    width: 40px;
+}
+
+.closeIconContainer .closeIconSpan:nth-child(1) {
+    transform: rotate(45deg) translateY(-8px);
+    transform-origin: 0% 0%;
+}
+
+.closeIconContainer .closeIconSpan:nth-child(2) {
+    transform: rotate(-45deg) translateY(7px);
+    transform-origin: 0% 100%;
+}

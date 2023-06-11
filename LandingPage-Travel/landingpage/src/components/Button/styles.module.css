@@ -1,14 +1,14 @@
 .button {
-    border: none;
-    padding: 1.25rem;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.026rem;
-    font-family: var(--secundaryFont);
-    border-radius: 1.125rem;
     background: linear-gradient(90deg, #CD1A40 -11%, #FF803C 109.5%);
+    border: none;
+    border-radius: 1.125rem;
     color: #fff;
     cursor: pointer;
+    font-family: var(--secundaryFont);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.026rem;
+    padding: 1.25rem;
     transition: .1s;
 }
 

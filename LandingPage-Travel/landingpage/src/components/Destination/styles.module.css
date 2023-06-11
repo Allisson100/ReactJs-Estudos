@@ -6,9 +6,9 @@
 }
 
 .destinationContainer h4 {
-    font-weight: 400;
     font-family: var(--thirdFont);
     font-size: 2.875rem;
+    font-weight: 400;
     line-height: 4.169rem;
 }
 
@@ -17,31 +17,31 @@
 }
 
 .imageContainer {
-    width: 100%;
-    height: 39.125rem;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-        'imageOne imageOne imageTwo imageThree'
-        'imageOne imageOne imageFour imageFour'
-    ;
-    column-gap: 1.25rem;
-    row-gap: 0.875rem;
     color: #fff;
+    column-gap: 1.25rem;
+    display: grid;
+    grid-template-areas: 
+    'imageOne imageOne imageTwo imageThree'
+    'imageOne imageOne imageFour imageFour'
+    ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 39.125rem;
     margin-bottom: 3.438rem;
+    row-gap: 0.875rem;
+    width: 100%;
 }
 
 .imageOpacity {    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    row-gap: .5rem;
-    justify-content: center;
     align-items: center;
     background-color: rgba(30, 30, 30, 0.56);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    row-gap: .5rem;
     transition: .2s;
+    width: 100%;
 }
 
 .imageOpacity:hover {
@@ -51,31 +51,31 @@
 .imageOne {
     background-image: url(../../assets/img/malaysia.png);
     background-position: no-repeat;
-    width: 100%;
-    height: 100%;
     grid-area: imageOne;
+    height: 100%;
+    width: 100%;
     
 }
 
 .imageTwo {
-    grid-area: imageTwo;
     background-image: url(../../assets/img/dubai.png);
-    width: 100%;
+    grid-area: imageTwo;
     height: 100%;
+    width: 100%;
 }
 
 .imageThree {
-    grid-area: imageThree;
     background-image: url(../../assets/img/greece.png);
-    width: 100%;
+    grid-area: imageThree;
     height: 100%;
+    width: 100%;
 }
 
 .imageFour {
-    grid-area: imageFour;
     background-image: url(../../assets/img/singapore.png);
-    width: 100%;
+    grid-area: imageFour;
     height: 100%;
+    width: 100%;
 }
 
 

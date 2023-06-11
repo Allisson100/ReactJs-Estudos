@@ -1,0 +1,31 @@
+.nav {
+    position: absolute;
+    right: -45vw;
+    top: 0;
+    transition: 1s;
+}
+
+.menuContainerUl {
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, .6);
+    border-bottom-left-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100vh;
+    padding: 2rem 1rem;
+    position: relative;
+    width: 35vw;
+}
+
+.menuContainerUl li {
+    color: #ffffff;
+    cursor: pointer;
+    font-family: var(--secundaryFont);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.menuContainerUl li:hover {
+    text-decoration: underline;
+}

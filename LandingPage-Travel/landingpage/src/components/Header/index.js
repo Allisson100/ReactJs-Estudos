@@ -1,6 +1,17 @@
+import HamburgerMenu from '../HamburgerMenu'
+import Navbar from '../Navbar'
 import styles from './styles.module.css'
 
+import { useState } from 'react'
+
 function Header () {
+
+    const [buttonMode , setButtonMode] = useState(false)
+
+    const menuHambugerMode = () => {
+        setButtonMode(!buttonMode)
+    }
+
     return (
         <header>
             <nav className={styles.navContainer}>
@@ -17,7 +28,17 @@ function Header () {
                     <span>Sign In</span>
                     <button>SignUp</button>
                 </div>
+
+                <HamburgerMenu 
+                    onClick={menuHambugerMode}
+                    buttonState={buttonMode}
+                />                
             </nav>
+            <Navbar 
+                buttonState={buttonMode}
+                onClick={menuHambugerMode}
+            />
+            
         </header>
     )
 }
