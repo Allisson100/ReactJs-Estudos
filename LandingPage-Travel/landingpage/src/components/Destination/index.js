@@ -36,7 +36,10 @@ function Destination () {
                 </div>
             </div>
             
-            <Button>View More</Button>
+            <div className={styles.buttonConatainner}>
+                <Button>View More</Button>
+            </div>
+            
         </section>
        
     )

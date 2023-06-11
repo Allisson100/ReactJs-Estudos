@@ -4,7 +4,7 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 15.5rem;
-    padding: 5.813rem;
+    padding: 7% 6.8%;
     position: relative;
     width: 100%;
 }
@@ -92,4 +92,24 @@
     left: 0;
     position: absolute;
     width: 35.313rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .newsletterBuilding {
+        display: none;
+    }
+
+    .newsletterContainer {
+        justify-content: center;
+    }
+
+    .newsletterContent {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .newsletterInput::placeholder  {
+        font-size: .7rem;
+    }
 }

@@ -30,7 +30,7 @@
     line-height: 1.625rem;
     margin: 0 auto 2.25rem auto;
     margin-bottom: 2.25rem;
-    width: 48.75rem;
+    width: 68%;
 }
 
 .commentContainer {
@@ -38,7 +38,7 @@
     clip-path: polygon(0% 0%, 0% 90%, 56% 90%, 56% 100%, 58% 90%, 100% 90%, 100% 0%);
     padding: 2.375rem 2.375rem 2.938rem 2.375rem;
     margin: 0 auto;
-    width: 61.25rem;
+    width: 85%;
 }
 
 .commentContainerP{
@@ -101,4 +101,16 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.625rem;
+}
+
+@media screen and (max-width: 1206px) {
+    .picturesContainer::before {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 602px) {
+    .commentContainer {
+        clip-path: none;
+    }
 }

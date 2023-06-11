@@ -1,4 +1,6 @@
 .destinationContainer {
+    display: flex;
+    flex-direction: column;
     padding: 0 6.8%;
 }
 
@@ -13,11 +15,11 @@
 }
 
 .destinationContainer h3 {
-    font-family: var(--secundaryFont);
-    font-weight: 200;
-    font-size: 4rem;
-    line-height: 4.688rem;
     color: #1E1E1E;
+    font-family: var(--secundaryFont);
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 4.688rem;
     text-transform: uppercase;
     margin-bottom: 2.25rem;
 }
@@ -67,6 +69,7 @@
 
 .imageOne {
     background-image: url(../../assets/img/malaysia.png);
+    background-position: no-repeat;
     width: 100%;
     height: 100%;
     grid-area: imageOne;
@@ -92,4 +95,47 @@
     background-image: url(../../assets/img/singapore.png);
     width: 100%;
     height: 100%;
+}
+
+
+@media screen and (max-width: 700px) {
+    .imageContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .imageOpacity {
+        border-radius: 2rem;
+        padding: 2rem;
+    }
+
+    .imageOne {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 47%;
+    }
+
+    .imageTwo {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 47%;
+    }
+
+    .imageThree {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 47%;
+    }
+
+    .imageFour {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 47%;
+    }
 }
