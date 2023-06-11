@@ -5,7 +5,7 @@ function Navbar ({ buttonState , onClick }) {
     return (
         <nav 
             className={styles.nav}
-            style={{right: `${buttonState ? '-45vw' : '0'}`}}
+            style={{right: `${buttonState ? '0' : '-45vw'}`}}
         >
             <ul className={styles.menuContainerUl}>
                 <li>Home</li>

@@ -6,7 +6,7 @@ function HamburgerMenu ({ onClick , buttonState }) {
             <div 
                 className={styles.menuContainer} 
                 onClick={onClick}
-                style={{opacity: `${buttonState ? '1' : '0'}`, transition: '2s'}}
+                style={{opacity: `${buttonState ? '0' : '1'}`, transition: '2s'}}
             >
                 <div className={styles.lineContainer}>
                     <span></span>
