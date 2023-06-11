@@ -18,7 +18,7 @@
 .footerListeeTravel {
     display: flex;
     flex-direction: column;
-    height: 16.188rem;
+    height: auto;
     width: 23.75rem;
 }
 
@@ -99,6 +99,12 @@
     font-size: 1.125rem;
     font-weight: 300;
     line-height: 1.906rem;
+}
+
+@media screen and (max-width: 1144px) {
+    .footerOpacity {
+        row-gap: 2rem;
+    }
 }
 
 

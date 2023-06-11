@@ -1,27 +1,8 @@
 .destinationContainer {
     display: flex;
     flex-direction: column;
-    padding: 0 6.8%;
-}
-
-.destinationContainer h2 {
-    font-family: var(--thirdFont);
-    font-weight: 400;
-    color: #CD1A40;
-    font-size: 2.875rem;
-    line-height: 4.188rem;
-    margin-bottom: .5rem;
     margin-top: 4.75rem;
-}
-
-.destinationContainer h3 {
-    color: #1E1E1E;
-    font-family: var(--secundaryFont);
-    font-size: 4rem;
-    font-weight: 200;
-    line-height: 4.688rem;
-    text-transform: uppercase;
-    margin-bottom: 2.25rem;
+    padding: 0 6.8%;
 }
 
 .destinationContainer h4 {
@@ -98,12 +79,13 @@
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (min-width:501px) and (max-width: 700px) {
     .imageContainer {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
         height: auto;
+        justify-content: center;
     }
 
     .imageOpacity {
@@ -137,5 +119,49 @@
         border-radius: 2rem;
         height: 30%;
         width: 47%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .imageContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        height: auto;
+        justify-content: center;
+    }
+
+    .imageOpacity {
+        border-radius: 2rem;
+        padding: 2rem;
+    }
+
+    .imageOne {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 80%;
+    }
+
+    .imageTwo {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 80%;
+    }
+
+    .imageThree {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 80%;
+    }
+
+    .imageFour {
+        background-position: center;
+        border-radius: 2rem;
+        height: 30%;
+        width: 80%;
     }
 }

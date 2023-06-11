@@ -5,9 +5,9 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 25.75rem;
+    height: auto;
     padding: 3.5rem 2.063rem 2.375rem 2.063rem;
-    width: 23rem;
+    width: 31%;
 }
 
 .card img {
@@ -40,3 +40,14 @@
     color: #999999;
 }
 
+@media screen and (min-width: 694px) and (max-width: 900px) {
+    .card {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 693px) {
+    .card {
+        width: 100%;
+    }
+}

@@ -1,11 +1,14 @@
+import TitlesAndText from '../TitlesAndText'
 import styles from './styles.module.css'
 
 function SharedPhotos () {
     return (
         <section className={styles.sharedPhotosContainer}>
-            <h1>Best Traveler's</h1>
-            <h2>Shared photos</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <TitlesAndText 
+                title={"Best Traveler's"}
+                subtitle={'Shared photos'}
+                p={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}
+            />
             <div className={styles.photosContainer}>
                 <img src={require('../../assets/img/sp1.png')} alt="" />
                 <img src={require('../../assets/img/sp2.png')} alt="" />

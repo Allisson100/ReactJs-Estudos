@@ -1,11 +1,15 @@
 import Button from '../Button'
+import TitlesAndText from '../TitlesAndText'
 import styles from './styles.module.css'
 
 function Destination () {
     return (
         <section className={styles.destinationContainer}>
-            <h2>Choose your</h2>
-            <h3>Destination</h3>
+            <TitlesAndText 
+                title={'Choose your'}
+                subtitle={'Destination'}
+                p={''}
+            />
             <div className={styles.imageContainer}>
                 <div className={styles.imageOne}>
                     <div className={styles.imageOpacity}>
