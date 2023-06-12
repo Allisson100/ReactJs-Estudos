@@ -1,28 +1,27 @@
 .nav {
     position: absolute;
-    right: -45vw;
     top: 0;
-    transition: 1s;
+    transition: 2s;
 }
 
 .menuContainerUl {
-    align-items: flex-start;
-    background-color: rgba(0, 0, 0, .6);
+    align-items: center;
+    background-color: rgba(0, 0, 0, .95);
     border-bottom-left-radius: 1rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     height: 100vh;
-    padding: 2rem 1rem;
+    padding: 6rem 1rem;
     position: relative;
-    width: 35vw;
+    width: 100vw;
 }
 
 .menuContainerUl li {
     color: #ffffff;
     cursor: pointer;
     font-family: var(--secundaryFont);
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 

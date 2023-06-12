@@ -12,6 +12,12 @@ function Header () {
         setButtonMode(!buttonMode)
     }
 
+    if(buttonMode) {
+        document.body.style.overflowY = 'hidden'
+    } else {
+        document.body.style.overflowY = ''
+    }
+
     return (
         <header>
             <nav className={styles.navContainer}>

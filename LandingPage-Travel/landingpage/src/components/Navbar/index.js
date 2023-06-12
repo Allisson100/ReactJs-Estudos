@@ -2,10 +2,13 @@ import CloseIcon from '../CloseIcon'
 import styles from './styles.module.css'
 
 function Navbar ({ buttonState , onClick }) {
+
+    
+
     return (
         <nav 
             className={styles.nav}
-            style={{right: `${buttonState ? '0' : '-45vw'}`}}
+            style={{display: `${!buttonState ? 'none' : 'block'}`, right: `${buttonState ? '0' : '-110vw'}`}}
         >
             <ul className={styles.menuContainerUl}>
                 <li>Home</li>
